@@ -31,12 +31,12 @@ You can view my live coursework journal here:
 | Week | Focus | Status |
 |------|-------|--------|
 | ✅ [Week 1](week1.md) | Server setup, distro selection, SSH, architecture diagram | Completed |
-| ⏳ [Week 2](week2.md) | Threat modelling, firewall setup, update automation | In progress |
-| ⏳ [Week 3](week3.md) | Logging setup, logrotate, syslog, journald | Not started |
-| ⏳ [Week 4](week4.md) | File and user permissions, sudo policies, group access | Not started |
-| ⏳ [Week 5](week5.md) | Monitoring tools (top, htop, ps), process management | Not started |
-| ⏳ [Week 6](week6.md) | Automation with scripts, backups, cron jobs | Not started |
-| ⏳ [Week 7](week7.md) | Final review, hardening recap, reflection and cleanup | Not started |
+| ✅ [Week 2](week2.md) | Threat modelling, firewall setup, update automation | Completed |
+| ✅ [Week 3](week3.md) | Logging setup, logrotate, syslog, journald | Completed |
+| ✅ [Week 4](week4.md) | File and user permissions, sudo policies, group access | Completed |
+| ✅ [Week 5](week5.md) | Monitoring tools (top, htop, ps), process management | Completed |
+| ✅ [Week 6](week6.md) | Automation with scripts, backups, cron jobs | Completed |
+| ✅ [Week 7](week7.md) | Final review, hardening recap, reflection and cleanup | Completed |
 
 ---
 
@@ -78,16 +78,6 @@ You can view my live coursework journal here:
 >
 > ---
 
-## 🧠 Reflection
 
-Week 1 provided a valuable foundation for understanding how to deploy and manage a secure Linux environment. Setting up a headless Ubuntu Server VM helped me improve my confidence using the command line, especially for networking and remote access.
-
-I faced initial issues with SSH connectivity due to VirtualBox network adapter misconfiguration. Through troubleshooting using `ip a` and checking my adapter settings, I was able to resolve the problem and establish a working SSH connection from the host.
-
-This process reinforced the importance of proper network planning and verification. It also helped me gain hands-on experience with core tools like `systemctl`, `uname`, `df`, and `free`, and understand how to document infrastructure clearly using diagrams.
-
-Overall, Week 1 strengthened my understanding of Linux fundamentals, system access, and virtualisation — preparing me for deeper security and system administration tasks in future weeks.
-
----
 
 
