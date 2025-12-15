@@ -21,7 +21,11 @@ The OpenSSH server was verified to be installed, enabled at boot, and actively r
 sudo systemctl status ssh
 sudo systemctl enable ssh
 
-📸 Evidence
+### 🔐 Sudo Privileges Check
+
+![Sudo access check](images/week4-sudo-check.png)
+
+---
 
 
 
