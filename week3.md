@@ -1,3 +1,5 @@
+title: Week 3 – Logging, Syslog, and Log Rotation
+---
 
 # 📅 Week 3 – Logging Setup, logrotate, syslog, journald
 
@@ -5,74 +7,56 @@
 
 ## ✅ Overview
 
-This week focused on system logging and log management. I explored how logs are stored in Linux using `rsyslog` and `journald`, and I configured log rotation using `logrotate` to ensure that log files don’t fill up disk space over time. These tasks are critical for security auditing and system monitoring.
+This week focused on system logging and log management. I explored how logs are stored in Linux using `rsyslog` and `journald`, and I configured log rotation using `logrotate` to ensure that log files do not fill up disk space over time. Logging is essential for troubleshooting, auditing, and detecting security incidents.
 
 ---
 
 ## 📝 Logging with Rsyslog
 
-Rsyslog is responsible for collecting log messages and writing them to files in `/var/log`.
+Rsyslog is responsible for collecting system and application logs and storing them in `/var/log`.
 
 ### 🔧 Commands Run
 
 ```bash
-# Check if rsyslog is running
 sudo systemctl status rsyslog
-
-# View system log
 less /var/log/syslog
-
-# View authentication logs
 less /var/log/auth.log
+📸 Screenshot: rsyslog service status
 
+📸 Screenshot: Syslog output
 
-📸 Screenshot:
-images/week3-rsyslog-status.png
+📸 Screenshot: Auth log (SSH activity)
 
 🧾 Systemd Journaling (journalctl)
+Systemd provides journalctl to query logs stored by the systemd journal.
 
-Systemd provides a powerful tool called journalctl to query logs from the systemd journal.
-
-🔧 Useful Commands
-# Show full boot log
+🔧 Commands Run
+bash
+Copy code
 journalctl -b
-
-# Show real-time logs
 journalctl -f
-
-# Show logs for SSH
 journalctl _COMM=sshd
-
-
-📸 Screenshot:
-images/week3-journalctl-ssh.png
+📸 Screenshot: SSH logs using journalctl
 
 🔁 Log Rotation with logrotate
+Logrotate ensures logs are automatically rotated, compressed, and removed to prevent disk exhaustion.
 
-Logrotate automatically compresses and removes old logs to save space and improve performance.
-
-🔧 Commands & Config Check
-# View logrotate config
+🔧 Commands Run
+bash
+Copy code
 cat /etc/logrotate.conf
-
-# Check individual service config (e.g., apt)
 cat /etc/logrotate.d/apt
-
-# Force logrotate to run
 sudo logrotate -f /etc/logrotate.conf
+ls -lh /var/log/*.gz
+📸 Screenshot: logrotate main config
 
+📸 Screenshot: logrotate apt config
 
-✅ Log rotation confirmed and tested manually.
-
-📸 Screenshot:
-images/week3-logrotate-config.png
+📸 Screenshot: Rotated log files
 
 🧠 Week 3 Reflection
+This week improved my understanding of how Linux handles system logging and why logs are critical for both security and maintenance. Learning about rsyslog helped me understand how traditional log files such as syslog and auth.log are generated and stored.
 
-This week deepened my understanding of how Linux handles system logs and why they’re essential for tracking activity, troubleshooting issues, and detecting potential intrusions.
+Using journalctl was particularly useful, as it allows detailed filtering of logs by service and time. At first, I found it confusing to understand the difference between journal logs and file-based logs, but I learned that they can work together depending on system configuration.
 
-I found it useful to compare traditional file-based logging (rsyslog) with systemd’s journal logging (journalctl). Initially, it was unclear where logs were going, but I learned that both systems coexist and serve different purposes depending on configuration.
-
-One challenge was interpreting logrotate's behavior, especially its default schedule. For testing, I manually triggered it using the -f flag to confirm that old logs were rotated.
-
-In future weeks, I’ll build on this by adding monitoring tools and potentially forwarding logs to a remote server.
+I also gained practical experience with logrotate, especially how it manages log file size automatically. Manually forcing log rotation helped me confirm that it was configured correctly. This week showed me how proper logging and log management is essential for system stability, security auditing, and future troubleshooting.
