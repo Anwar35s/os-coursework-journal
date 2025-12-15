@@ -45,3 +45,55 @@ The `top` command gives a live overview of resource usage by each process.
 ---
 
 
+## 📊 Step 4: Creating a Long-Running Background Process
+
+We simulated a long-running background process using the sleep command:
+
+sleep 1000 &
+
+
+This command runs in the background and returns a Process ID (PID), which can later be managed.
+
+
+### 🖼️ Screenshot:
+
+![htop output](images/week5-runningsleep-1000.png)
+
+
+## 📊 Step 5: Terminating the Process Using kill
+The running sleep process was identified using:
+
+ps aux | grep sleep
+
+
+Once the PID (5256) was confirmed, the process was terminated using:
+
+kill 5256
+
+
+Alternatively, the process was also terminated by name:
+
+killall sleep
+
+
+![htop output](images/week5-killallcommand-pid-5256.png)
+
+
+
+## 📊 Step 6: Verifying the Process Has Been Terminated
+
+To confirm the process was successfully stopped, the following command was run again:
+
+ps aux | grep sleep
+
+
+The output showed that the sleep process was no longer running.
+
+
+![htop output](images/week5-command-pid5256-gone.png)
+
+
+
+![htop output](images/week5-ps-output.png)
+
+
