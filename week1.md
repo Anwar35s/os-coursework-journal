@@ -18,7 +18,7 @@ I selected **Ubuntu Server 22.04 LTS** due to the following reasons:
 - Widely used in cloud and enterprise environments
 - Comes with AppArmor, UFW, and support for unattended upgrades
 
-### ❗ Alternatives considered:
+### ❗ Alternatives Considered
 
 | Distribution | Pros                        | Cons                             |
 |--------------|-----------------------------|----------------------------------|
@@ -30,15 +30,15 @@ I selected **Ubuntu Server 22.04 LTS** due to the following reasons:
 
 ## 🧰 Virtual Machine Configuration
 
-| Setting            | Value                   |
-|--------------------|-------------------------|
-| Virtualisation     | VirtualBox              |
-| OS                 | Ubuntu Server 22.04 LTS |
-| RAM                | 2048 MB                 |
-| CPU Cores          | 2                       |
-| Disk Size          | 15 GB (dynamically allocated) |
-| Boot Mode          | Headless (CLI only)     |
-| Display            | None                    |
+| Setting        | Value                       |
+|----------------|-----------------------------|
+| Virtualisation | VirtualBox                  |
+| OS             | Ubuntu Server 22.04 LTS     |
+| RAM            | 2048 MB                     |
+| CPU Cores      | 2                           |
+| Disk Size      | 15 GB (dynamically allocated) |
+| Boot Mode      | Headless (CLI only)         |
+| Display        | None                        |
 
 ---
 
@@ -46,19 +46,26 @@ I selected **Ubuntu Server 22.04 LTS** due to the following reasons:
 
 To securely access the server and allow internet access, I configured two adapters:
 
-- **Adapter 1 – NAT:**  
-  Provides internet access for system updates and package installation.
+- **Adapter 1 – NAT:** Provides internet access for system updates and package installation.
+- **Adapter 2 – Host-Only:** Enables private SSH access from the host machine to the VM.
 
-- **Adapter 2 – Host-Only:**  
-  Enables private SSH access from the host machine to the VM.
+### 🔌 VirtualBox Adapter Screenshots
 
-### 🔐 IP Addresses
+#### Adapter 1 – NAT
 
-| Component      | IP Address       |
-|----------------|------------------|
-| Host Machine   | 192.168.56.1     |
-| Ubuntu Server  | 192.168.56.102   |
-| SSH Port       | 22 (default)     |
+![Adapter 1 - NAT](images/week1-vbox-adapter1.png)
+
+#### Adapter 2 – Host-Only
+
+![Adapter 2 - Host-Only](images/week1-vbox-adapter2.png)
+
+---
+
+## 📊 System Architecture Diagram
+
+Below is the system architecture diagram showing the host, VM, and network setup:
+
+![System Architecture](images/week1-architecture.png)
 
 ---
 
@@ -71,22 +78,44 @@ sudo apt update
 sudo apt install openssh-server
 sudo systemctl enable ssh
 sudo systemctl start ssh
-
-✅ SSH Status Check
 sudo systemctl status ssh
-
-✅ SSH Access from Host
+✅ Testing SSH Access
+bash
+Copy code
 ssh student@192.168.56.102
+📸 SSH Access Screenshot
 
+📂 System Information and Command Outputs
+🔹 ip a – IP Address and Interfaces
 
-✔️ SSH access was successfully verified from the host machine to the Ubuntu VM
-
-
----
-
-
-
-
-
-
-
+bash
+Copy code
+3: enp0s8: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 ...
+    inet 192.168.56.102/24 brd 192.168.56.255 scope global dynamic enp0s8
+🔹 df -h – Disk Space Usage
+bash
+Copy code
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda2        15G  1.2G   13G   9% /
+🔹 free -h – Memory Usage
+bash
+Copy code
+              total        used        free
+Mem:          1.9Gi       200Mi       1.6Gi
+Swap:         975Mi          0B       975Mi
+🔹 uname -a – Kernel Version
+bash
+Copy code
+Linux ubuntu 5.15.0-91-generic #101-Ubuntu SMP ...
+🔹 lsb_release -a – OS Release Info
+bash
+Copy code
+Distributor ID: Ubuntu
+Description:    Ubuntu 22.04.3 LTS
+Release:        22.04
+Codename:       jammy
+🔹 whoami / hostname
+bash
+Copy code
+student
+ubuntu-server
