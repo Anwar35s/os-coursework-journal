@@ -1,88 +1,82 @@
-📅 Week 1 – System Setup and Architecture Planning
-✅ Overview
+# 📅 Week 1 – System Setup and Architecture Planning
 
-In Week 1, I designed and deployed a headless Linux server environment using Ubuntu Server 22.04 LTS in VirtualBox. The server was configured with secure remote access using OpenSSH, and networking was set up using NAT and Host‑Only adapters. A system architecture diagram and command‑line evidence were produced to document the setup.
+---
 
-This environment will be used throughout the remaining weeks for security hardening, monitoring, and automation tasks.
+## ✅ Overview
 
-🐧 Linux Distribution Selection
+In Week 1, I created a headless Linux server environment using **Ubuntu Server 22.04 LTS** within **VirtualBox**. I configured the system for remote SSH access, set up networking using both NAT and Host-Only adapters, and documented the architecture with a visual diagram. This setup forms the secure foundation for the remaining weeks of the Operating Systems coursework.
 
-I selected Ubuntu Server 22.04 LTS as the operating system for the server.
+---
 
-Reasons for selection:
+## 🐧 Linux Distribution Selection
 
-Long‑Term Support (LTS): Security updates available until 2027
+I selected **Ubuntu Server 22.04 LTS** due to the following reasons:
 
-Minimal server installation: No graphical interface, reduced attack surface
+- Long-Term Support (LTS) until 2027
+- Minimal, secure server edition (no GUI)
+- Strong community support and documentation
+- Widely used in cloud and enterprise environments
+- Comes with AppArmor, UFW, and support for unattended upgrades
 
-Strong community support: Extensive documentation and troubleshooting resources
+### ❗ Alternatives considered:
 
-Security features: Includes AppArmor, UFW, and unattended security updates
+| Distribution | Pros                        | Cons                             |
+|--------------|-----------------------------|----------------------------------|
+| Debian       | Very stable, lightweight    | Slower updates, less user-friendly |
+| CentOS       | Enterprise-grade            | CentOS Stream introduces instability |
+| Alpine Linux | Very minimal footprint      | Too lightweight for this course |
 
-Industry relevance: Commonly used in enterprise and cloud environments
+---
 
-Alternative distributions considered:
-Distribution	Reason Not Chosen
-Debian	Extremely stable, but slower package updates
-CentOS Stream	Rolling‑release model may introduce instability
-Alpine Linux	Very lightweight, but lacks tools needed for this coursework
+## 🧰 Virtual Machine Configuration
 
-Ubuntu Server provided the best balance between stability, usability, and security.
+| Setting            | Value                   |
+|--------------------|-------------------------|
+| Virtualisation     | VirtualBox              |
+| OS                 | Ubuntu Server 22.04 LTS |
+| RAM                | 2048 MB                 |
+| CPU Cores          | 2                       |
+| Disk Size          | 15 GB (dynamically allocated) |
+| Boot Mode          | Headless (CLI only)     |
+| Display            | None                    |
 
-🧰 Virtual Machine Configuration
+---
 
-The server was deployed as a headless virtual machine using VirtualBox.
+## 🌐 Network Configuration
 
-Setting	Value
-Virtualisation Platform	VirtualBox
-Operating System	Ubuntu Server 22.04 LTS
-Memory	2048 MB
-CPU	2 vCPUs
-Storage	15 GB (dynamically allocated)
-Display	Headless (no GUI)
-🌐 Network Configuration
+To securely access the server and allow internet access, I configured two adapters:
 
-Two network adapters were configured to separate internal access from external connectivity:
+- **Adapter 1 – NAT:**  
+  Provides internet access for system updates and package installation.
 
-Adapter Configuration:
+- **Adapter 2 – Host-Only:**  
+  Enables private SSH access from the host machine to the VM.
 
-Adapter 1 – NAT
+### 🔐 IP Addresses
 
-Provides internet access for updates and package installation
+| Component      | IP Address       |
+|----------------|------------------|
+| Host Machine   | 192.168.56.1     |
+| Ubuntu Server  | 192.168.56.102   |
+| SSH Port       | 22 (default)     |
 
-Adapter 2 – Host‑Only
+---
 
-Enables private SSH access from the host machine
+## 🔐 OpenSSH Server Setup
 
-IP Addressing:
+### ✅ Installation and Service Configuration
 
-Server Host‑Only IP: 192.168.56.102
-
-Host IP: 192.168.56.1
-
-SSH Port: 22
-
-Network Interface (Host‑Only): enp0s8
-
-Network Interface (NAT): enp0s3
-
-This setup allows secure management while preventing direct external access to the server.
-
-🔐 OpenSSH Server Configuration
-
-OpenSSH was installed and enabled on the server to allow remote management.
-
-Installation and setup:
+```bash
 sudo apt update
 sudo apt install openssh-server
 sudo systemctl enable ssh
 sudo systemctl start ssh
 
-Verification:
+✅ SSH Status Check
 sudo systemctl status ssh
 
-SSH Access Command (from host):
+✅ SSH Access from Host
 ssh username@192.168.56.102
 
 
-SSH access was successfully established from the host machine using the Host‑Only network.
+✔️ SSH access was successfully verified from the host machine to the Ubuntu VM
