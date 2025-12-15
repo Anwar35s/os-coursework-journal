@@ -97,3 +97,8 @@ The output showed that the sleep process was no longer running.
 ![htop output](images/week5-ps-output.png)
 
 
+💬 Reflection
+
+This week helped me understand how Linux handles process execution and management. Creating a background process using sleep allowed me to safely test monitoring and termination commands. I learned how to identify process IDs using ps, monitor system activity with top and htop, and correctly terminate processes using kill and killall.
+
+These tools are essential for managing system stability and performance, especially when dealing with resource-intensive or unresponsive processes. They form a key part of every Linux administrator's toolkit.
