@@ -75,4 +75,19 @@ You can view my live coursework journal here:
 - ✔️ All evidence submitted via GitHub Pages
 
 > 📌 Screenshots, command outputs, and configurations reflect actual work done in the virtual lab environment.
+>
+> ---
+
+## 🧠 Reflection
+
+Week 1 provided a valuable foundation for understanding how to deploy and manage a secure Linux environment. Setting up a headless Ubuntu Server VM helped me improve my confidence using the command line, especially for networking and remote access.
+
+I faced initial issues with SSH connectivity due to VirtualBox network adapter misconfiguration. Through troubleshooting using `ip a` and checking my adapter settings, I was able to resolve the problem and establish a working SSH connection from the host.
+
+This process reinforced the importance of proper network planning and verification. It also helped me gain hands-on experience with core tools like `systemctl`, `uname`, `df`, and `free`, and understand how to document infrastructure clearly using diagrams.
+
+Overall, Week 1 strengthened my understanding of Linux fundamentals, system access, and virtualisation — preparing me for deeper security and system administration tasks in future weeks.
+
+---
+
 
