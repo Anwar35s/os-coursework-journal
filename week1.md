@@ -76,7 +76,7 @@ sudo systemctl start ssh
 sudo systemctl status ssh
 
 ✅ SSH Access from Host
-ssh username@192.168.56.102
+ssh student@192.168.56.102
 
 
 ✔️ SSH access was successfully verified from the host machine to the Ubuntu VM
