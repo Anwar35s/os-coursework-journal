@@ -1,6 +1,6 @@
 # Week 1 — System Planning and Distribution Selection
 
-**Navigation:** Home | Week 1 | [Week 2](week2.md) | [Week 3](week3.md) | [Week 4](week4.md) | [Week 5](week5.md) | [Week 6](week6.md) | [Week 7](week7.md)
+**Navigation:** Home | Week 1 | [Week 2](images/week2.md) | [Week 3](images/week3.md) | [Week 4](images/week4.md) | [Week 5](images/week5.md) | [Week 6](images/week6.md) | [Week 7](images/week7.md)
 
 ---
 
@@ -19,7 +19,7 @@ The deployment uses a dual-system architecture running on UTM (Universal Turing 
 
 Both systems communicate over UTM's virtual network (`192.168.64.0/24`).
 
-![System Architecture Diagram](week1-architecture.png)
+![System Architecture Diagram](images/week1-architecture.png)
 
 *Architecture: Mac Terminal (192.168.64.1) connects via SSH to Ubuntu Server (192.168.64.13) over UTM virtual network.*
 
@@ -90,7 +90,7 @@ All commands were executed on the server via SSH from the Mac workstation. The p
 Linux anwar35s 6.8.0-106-generic #106-Ubuntu SMP PREEMPT_DYNAMIC Fri Mar 6 07:44:40 UTC 2026 aarch64 aarch64 aarch64 GNU/Linux
 ```
 
-![CLI commands output](week1-cli-commands.png)
+![CLI commands output](images/week1-cli-commands.png)
 
 **Interpretation:** The system runs Linux kernel 6.8.0-106 on aarch64 (ARM 64-bit) architecture, compiled on 6 March 2026. The `PREEMPT_DYNAMIC` flag indicates a kernel with configurable preemption, supporting both server (throughput-optimised) and desktop (latency-optimised) workloads.
 
@@ -125,7 +125,7 @@ Filesystem                         Size  Used Avail Use%  Mounted on
 3: enp0s2: inet 192.168.64.13/24  (SSH administration network)
 ```
 
-![ip addr output](week1-ipaddr.png)
+![ip addr output](images/week1-ipaddr.png)
 
 **Interpretation:** Two active network interfaces. `enp0s1` provides internet access for package installation and updates. `enp0s2` is the UTM virtual network interface used for all SSH-based administration from the Mac workstation.
 
@@ -145,7 +145,7 @@ Codename:       noble
 
 ### SSH Access Evidence
 
-![SSH connection from Mac to Ubuntu Server](week1-ssh-access.png)
+![SSH connection from Mac to Ubuntu Server](images/week1-ssh-access.png)
 
 *Screenshot shows successful SSH connection from Mac Terminal (`fly35s@Mac`) to the Ubuntu Server (`anwar35s@anwar35s`), confirming network connectivity and authentication.*
 

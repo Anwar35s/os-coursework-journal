@@ -1,6 +1,6 @@
 # Week 7 — Security Audit and System Evaluation
 
-**Navigation:** [Week 1](week1.md) | [Week 2](week2.md) | [Week 3](week3.md) | [Week 4](week4.md) | [Week 5](week5.md) | [Week 6](week6.md) | Week 7
+**Navigation:** [Week 1](images/week1.md) | [Week 2](images/week2.md) | [Week 3](images/week3.md) | [Week 4](images/week4.md) | [Week 5](images/week5.md) | [Week 6](images/week6.md) | Week 7
 
 ---
 
@@ -18,7 +18,7 @@ sudo apt install -y lynis
 sudo lynis audit system 2>&1 | tee ~/results/lynis-before.log
 ```
 
-![Lynis installation](week7-lynis-install.png)
+![Lynis installation](images/week7-lynis-install.png)
 
 *Lynis 3.0.9 installed successfully. Initial audit running across 267 tests.*
 
@@ -28,7 +28,7 @@ sudo lynis audit system | grep "Hardening index"
 tail -50 ~/results/lynis-before.log
 ```
 
-![Lynis before score and warnings](week7-lynis-before.png)
+![Lynis before score and warnings](images/week7-lynis-before.png)
 
 **Initial Hardening Index: 62/100**
 
@@ -92,7 +92,7 @@ sudo chmod 700 /etc/cron.weekly
 sudo chmod 700 /etc/cron.monthly
 ```
 
-![Remediation evidence](week7-lynis-remediation.png)
+![Remediation evidence](images/week7-lynis-remediation.png)
 
 *All three remediations applied successfully. rkhunter scan completed with 0 rootkits found. sysctl values applied. cron directories restricted to root-only access.*
 
@@ -104,7 +104,7 @@ sudo lynis audit system 2>&1 | tee ~/results/lynis-after.log
 sudo lynis audit system | grep "Hardening index"
 ```
 
-![Lynis after score](week7-lynis-after.png)
+![Lynis after score](images/week7-lynis-after.png)
 
 **Final Hardening Index: 63/100**
 
@@ -132,7 +132,7 @@ The modest improvement from 62 to 63 reflects the virtualised environment constr
 nmap -sV -Pn --top-ports 1000 192.168.64.13
 ```
 
-![nmap scan results](week7-nmap.png)
+![nmap scan results](images/week7-nmap.png)
 
 ### Results
 
@@ -167,7 +167,7 @@ SSH key fingerprint confirmed: `SHA256:hiDJbmWijRwGuCcjmDxB23OYNM1amO6e+9N3YUooX
 sudo systemctl list-units --type=service --state=running
 ```
 
-![Running services](week7-services.png)
+![Running services](images/week7-services.png)
 
 *38 services running. All services justified below.*
 

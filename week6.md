@@ -1,6 +1,6 @@
 # Week 6 — Performance Evaluation and Analysis
 
-**Navigation:** [Week 1](week1.md) | [Week 2](week2.md) | [Week 3](week3.md) | [Week 4](week4.md) | [Week 5](week5.md) | Week 6 | [Week 7](week7.md)
+**Navigation:** [Week 1](images/week1.md) | [Week 2](images/week2.md) | [Week 3](images/week3.md) | [Week 4](images/week4.md) | [Week 5](images/week5.md) | Week 6 | [Week 7](images/week7.md)
 
 ---
 
@@ -39,9 +39,9 @@ ping -c 10 192.168.64.1
 uptime
 ```
 
-![Baseline CPU memory disk](week6-baseline.png)
+![Baseline CPU memory disk](images/week6-baseline.png)
 
-![Baseline network latency](week6-baseline-ping.png)
+![Baseline network latency](images/week6-baseline-ping.png)
 
 ### Baseline Results
 
@@ -71,9 +71,9 @@ stress-ng --cpu 2 --timeout 60s --metrics-brief 2>&1 | tee ~/results/stress-cpu.
 mpstat 1 10
 ```
 
-![stress-ng results](week6-stress-ng.png)
+![stress-ng results](images/week6-stress-ng.png)
 
-![mpstat CPU during stress test](week6-mpstat.png)
+![mpstat CPU during stress test](images/week6-mpstat.png)
 
 ### Results
 
@@ -98,7 +98,7 @@ stress-ng loaded both virtual CPU cores to near 100% utilisation for the full 60
 sysbench memory run 2>&1 | tee ~/results/sysbench-memory.log
 ```
 
-![sysbench memory results](week6-sysbench.png)
+![sysbench memory results](images/week6-sysbench.png)
 
 ### Results
 
@@ -125,7 +125,7 @@ The memory subsystem achieved 11,768 MiB/sec throughput — extremely high, indi
 fio --name=test --rw=randrw --size=512m --bs=4k --numjobs=1 --runtime=30 --time_based
 ```
 
-![fio disk I/O results](week6-fio.png)
+![fio disk I/O results](images/week6-fio.png)
 
 ### Results
 
@@ -160,7 +160,7 @@ On Mac workstation:
 iperf3 -c 192.168.64.13
 ```
 
-![iperf3 network throughput](week6-iperf3.png)
+![iperf3 network throughput](images/week6-iperf3.png)
 
 ### Results
 
@@ -185,7 +185,7 @@ The UTM virtual network achieved 5.18 Gbits/sec throughput — exceeding typical
 ab -n 1000 -c 50 http://192.168.64.13/
 ```
 
-![nginx baseline performance](week6-nginx-baseline.png)
+![nginx baseline performance](images/week6-nginx-baseline.png)
 
 ### Baseline Results
 
@@ -236,7 +236,7 @@ sudo systemctl reload nginx
 ab -n 1000 -c 50 http://192.168.64.13/
 ```
 
-![nginx after gzip optimisation](week6-nginx-gzip.png)
+![nginx after gzip optimisation](images/week6-nginx-gzip.png)
 
 ### Optimisation Results Comparison
 

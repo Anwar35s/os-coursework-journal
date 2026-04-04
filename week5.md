@@ -1,6 +1,6 @@
 # Week 5 — Advanced Security and Monitoring Infrastructure
 
-**Navigation:** [Week 1](week1.md) | [Week 2](week2.md) | [Week 3](week3.md) | [Week 4](week4.md) | Week 5 | [Week 6](week6.md) | [Week 7](week7.md)
+**Navigation:** [Week 1](images/week1.md) | [Week 2](images/week2.md) | [Week 3](images/week3.md) | [Week 4](images/week4.md) | Week 5 | [Week 6](images/week6.md) | [Week 7](images/week7.md)
 
 ---
 
@@ -18,7 +18,7 @@ sudo apparmor_status
 sudo aa-status | grep complain
 ```
 
-![AppArmor before](week5-apparmor-before.png)
+![AppArmor before](images/week5-apparmor-before.png)
 
 *Before intervention: 66 profiles loaded, 59 in enforce mode, 7 profiles in complain mode. Complain mode means the profile logs violations but does not block them — this is less secure than enforce mode.*
 
@@ -31,7 +31,7 @@ sudo apt install -y apparmor-utils
 sudo aa-enforce /etc/apparmor.d/*
 ```
 
-![AppArmor enforce](week5-apparmor-enforce.png)
+![AppArmor enforce](images/week5-apparmor-enforce.png)
 
 *All profiles processed — each line confirms "Setting [profile] to enforce mode". Some profiles were skipped where the binary was not found on this system.*
 
@@ -41,7 +41,7 @@ sudo aa-status | grep complain
 sudo apparmor_status
 ```
 
-![AppArmor after](week5-apparmor-after.png)
+![AppArmor after](images/week5-apparmor-after.png)
 
 *After intervention: 158 profiles loaded, all 158 in enforce mode, 0 profiles in complain mode. AppArmor is now fully enforcing mandatory access control across all loaded profiles.*
 
@@ -71,7 +71,7 @@ sudo systemctl status unattended-upgrades
 cat /etc/apt/apt.conf.d/20auto-upgrades
 ```
 
-![Automatic updates](week5-auto-updates.png)
+![Automatic updates](images/week5-auto-updates.png)
 
 *unattended-upgrades 2.9.1 was already installed. The service is active (running) since 13:09 UTC. The configuration file confirms:*
 - *`APT::Periodic::Update-Package-Lists "1"` — package lists updated daily*
@@ -118,7 +118,7 @@ sudo fail2ban-client status
 sudo fail2ban-client status sshd
 ```
 
-![fail2ban status](week5-fail2ban.png)
+![fail2ban status](images/week5-fail2ban.png)
 
 *fail2ban is active (running) with 1 active jail — sshd. Configuration:*
 - *maxretry: 3 — ban after 3 failed attempts*
@@ -272,7 +272,7 @@ chmod +x ~/security-baseline.sh
 sudo bash ~/security-baseline.sh
 ```
 
-![Security baseline script output](week5-security-baseline.png)
+![Security baseline script output](images/week5-security-baseline.png)
 
 *All 10 checks passed — 10/10 PASS. Every security control from Phases 4 and 5 is correctly configured and active.*
 
@@ -374,7 +374,7 @@ echo "=================================================" | tee -a "$LOGFILE"
 bash ~/monitor-server.sh
 ```
 
-![Monitor script output](week5-monitor-script.png)
+![Monitor script output](images/week5-monitor-script.png)
 
 *Script executed successfully from Mac workstation (`fly35s@Mac`). All 10 metrics collected remotely via SSH including CPU load, memory usage, disk usage, top processes, network interfaces, active connections, uptime, and disk I/O statistics. Output saved to timestamped log file `/Users/fly35s/server-monitor-2026-04-04-1617.log`.*
 

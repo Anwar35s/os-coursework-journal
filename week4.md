@@ -1,6 +1,6 @@
 # Week 4 — Initial System Configuration & Security Implementation
 
-**Navigation:** [Week 1](week1.md) | [Week 2](week2.md) | [Week 3](week3.md) | Week 4 | [Week 5](week5.md) | [Week 6](week6.md) | [Week 7](week7.md)
+**Navigation:** [Week 1](images/week1.md) | [Week 2](images/week2.md) | [Week 3](images/week3.md) | Week 4 | [Week 5](images/week5.md) | [Week 6](images/week6.md) | [Week 7](images/week7.md)
 
 ---
 
@@ -19,7 +19,7 @@ An ed25519 key pair was generated on the Mac workstation. Ed25519 was chosen ove
 ssh-keygen -t ed25519 -C "anwar35s-os-coursework"
 ```
 
-![SSH key generation](week4-keygen.png)
+![SSH key generation](images/week4-keygen.png)
 
 *Key pair generated and saved to `/Users/fly35s/.ssh/id_ed25519`. The randomart image confirms successful key creation. The comment `anwar35s-os-coursework` identifies the key's purpose.*
 
@@ -28,7 +28,7 @@ ssh-keygen -t ed25519 -C "anwar35s-os-coursework"
 ssh-copy-id anwar35s@192.168.64.13
 ```
 
-![SSH copy-id and passwordless login](week4-ssh-copy-id.png)
+![SSH copy-id and passwordless login](images/week4-ssh-copy-id.png)
 
 *The public key was installed successfully — "Number of key(s) added: 1". The subsequent `ssh anwar35s@192.168.64.13` command connected without a password prompt, confirming key-based authentication is working.*
 
@@ -41,7 +41,7 @@ ssh-copy-id anwar35s@192.168.64.13
 sudo cat /etc/ssh/sshd_config | grep -E "PasswordAuth|PermitRoot|MaxAuth"
 ```
 
-![SSH config before](week4-ssh-config-before.png)
+![SSH config before](images/week4-ssh-config-before.png)
 
 *Before hardening, all three settings were commented out (prefixed with `#`), meaning default values applied: `PasswordAuthentication yes`, `PermitRootLogin prohibit-password`, and `MaxAuthTries 6`. These defaults are insecure for a production server.*
 
@@ -63,7 +63,7 @@ sudo systemctl restart ssh
 sudo cat /etc/ssh/sshd_config | grep -E "PasswordAuth|PermitRoot|MaxAuth"
 ```
 
-![SSH config after](week4-ssh-config-after.png)
+![SSH config after](images/week4-ssh-config-after.png)
 
 *All three settings are now active without `#` comments: `PermitRootLogin no`, `MaxAuthTries 3`, `PasswordAuthentication no`. SSH service was restarted to apply changes.*
 
@@ -91,14 +91,14 @@ sudo ufw allow from 192.168.64.1 to any port 22
 sudo ufw enable
 ```
 
-![UFW setup](week4-ufw-setup.png)
+![UFW setup](images/week4-ufw-setup.png)
 
 ### Final Firewall Ruleset
 ```bash
 sudo ufw status verbose
 ```
 
-![UFW final status](week4-ufw-status.png)
+![UFW final status](images/week4-ufw-status.png)
 
 *Final ruleset confirms:*
 - *Status: active — enabled on system startup*
@@ -135,7 +135,7 @@ su - sysadmin
 sudo whoami
 ```
 
-![User management and sudo verification](week4-user-management.png)
+![User management and sudo verification](images/week4-user-management.png)
 
 *Evidence from screenshot confirms:*
 - *`sysadmin` created with UID 1004, home directory `/home/sysadmin`*

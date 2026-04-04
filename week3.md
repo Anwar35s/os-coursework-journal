@@ -1,6 +1,6 @@
 # Week 3 — Application Selection for Performance Testing
 
-**Navigation:** [Week 1](week1.md) | [Week 2](week2.md) | Week 3 | [Week 4](week4.md) | [Week 5](week5.md) | [Week 6](week6.md) | [Week 7](week7.md)
+**Navigation:** [Week 1](images/week1.md) | [Week 2](images/week2.md) | Week 3 | [Week 4](images/week4.md) | [Week 5](images/week5.md) | [Week 6](images/week6.md) | [Week 7](images/week7.md)
 
 ---
 
@@ -31,7 +31,7 @@ All installation commands were executed on the server via SSH from the Mac works
 sudo apt update
 ```
 
-![apt update output](week3-apt-update.png)
+![apt update output](images/week3-apt-update.png)
 
 *Package lists updated successfully. 132 packages available for upgrade, confirming the package manager is working and the server has internet access via enp0s1.*
 
@@ -42,7 +42,7 @@ sudo apt update
 sudo apt install -y stress-ng sysbench fio iperf3 nginx apache2-utils htop sysstat iftop
 ```
 
-![apt install output](week3-apt-install.png)
+![apt install output](images/week3-apt-install.png)
 
 *25 new packages installed including nginx, fio, sysbench, apache2-utils, and supporting libraries. stress-ng, iperf3, htop, and sysstat were already at their newest versions. Total additional disk space used: 48.1 MB.*
 
@@ -53,7 +53,7 @@ sudo apt install -y stress-ng sysbench fio iperf3 nginx apache2-utils htop sysst
 sudo systemctl status nginx
 ```
 
-![nginx status](week3-nginx-status.png)
+![nginx status](images/week3-nginx-status.png)
 
 *nginx 1.24.0 is active (running) since 13:14 UTC on 4 April 2026. The service is enabled to start on boot. Four worker processes are running (PIDs 3903–3906) with only 3.6MB memory usage, demonstrating nginx's lightweight footprint.*
 
@@ -64,7 +64,7 @@ sudo systemctl status nginx
 stress-ng --version && sysbench --version && fio --version && iperf3 --version && nginx -v
 ```
 
-![Tool versions verified](week3-versions.png)
+![Tool versions verified](images/week3-versions.png)
 
 *All tools confirmed installed and functional:*
 - *stress-ng 0.17.06 (aarch64)*

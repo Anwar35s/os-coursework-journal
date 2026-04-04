@@ -1,6 +1,6 @@
 # Week 2 — Security Planning and Testing Methodology
 
-**Navigation:** [Week 1](week1.md) | Week 2 | [Week 3](week3.md) | [Week 4](week4.md) | [Week 5](week5.md) | [Week 6](week6.md) | [Week 7](week7.md)
+**Navigation:** [Week 1](images/week1.md) | Week 2 | [Week 3](images/week3.md) | [Week 4](images/week4.md) | [Week 5](images/week5.md) | [Week 6](images/week6.md) | [Week 7](images/week7.md)
 
 ---
 
