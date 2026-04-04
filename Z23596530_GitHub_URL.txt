@@ -1,3 +1,2 @@
 Student ID: Z23596530
-GitHub Repo: https://github.com/Anwar35s/os-coursework-journal
-GitHub Pages: https://anwar35s.github.io/os-coursework-journal/
+https://anwar35s.github.io/os-coursework-journal
